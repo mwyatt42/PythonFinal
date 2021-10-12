@@ -1,10 +1,10 @@
 from tkinter import *
-
+#Drawing the main window here
 root = Tk()
 root.title('Temperature Converter')
 root.geometry('400x250')
 
-
+#C to F class/window/etc.
 class open_celFar:
     def __init__(self):
         celFar = Toplevel()
@@ -25,14 +25,14 @@ class open_celFar:
         self.text2 = Entry(celFar, bd=3)
         self.text2.place(x=200, y=150)
         celFar.mainloop()
-
+#this is where the C to F math happens.
     def fahrenheit(self):
         self.text2.delete(0, 'end')
         num1 = float(self.text1.get())
         result = ((float(num1) * 1.8) + 32)
         self.text2.insert(END, str(result))
 
-
+#F to C code lives here.
 class open_farCel:
     def __init__(self):
         farCel = Toplevel()
@@ -53,14 +53,14 @@ class open_farCel:
         self.text2 = Entry(farCel, bd=3)
         self.text2.place(x=200, y=150)
         farCel.mainloop()
-
+#actual math for F to C.
     def celsius(self):
         self.text2.delete(0, 'end')
         num1 = float(self.text1.get())
         result = ((float(num1) - 32) / 1.8)
         self.text2.insert(END, str(result))
 
-
+#all the buttons and graphics and such for the main window
 img = PhotoImage(file='mm.png')
 Label(root, image=img).pack()
 button1 = Button(root, text='Fahrenheit to Celsius', command=open_farCel)
@@ -69,4 +69,5 @@ button2 = Button(root, text='Celsius to Fahrenheit', command=open_celFar)
 button2.place(x=155, y=150)
 button3 = Button(root, text='Exit', command=root.destroy)
 button3.place(x=155, y=200)
+#make the actual main window work
 root.mainloop()
